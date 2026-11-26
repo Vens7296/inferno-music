@@ -13,7 +13,9 @@
     "achievements": [],
     "screenshots": [],
     "videos": [],
-    "tracks": [],
+    "tracks": [
+      "vens.mp3"
+    ],
     "visible": true
   },
   "snake": {
@@ -134,7 +136,10 @@
     "achievements": [],
     "screenshots": [],
     "videos": [],
-    "tracks": [],
+    "tracks": [
+      "ivar.m4a",
+      "ivar2.mp3"
+    ],
     "visible": true
   },
   "urban": {
