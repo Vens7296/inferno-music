@@ -260,5 +260,22 @@
     "videos": [],
     "achievements": [],
     "visible": true
+  },
+  "sam65th": {
+    "name": "Sam65th",
+    "since": 2015,
+    "rank": "Original",
+    "tag": "",
+    "status": "Экс-участник",
+    "location": "",
+    "callsign": "",
+    "motto": "",
+    "description": "",
+    "portrait": "media/sam65th/portrait/1795729132603-7drxr3z.png",
+    "tracks": [],
+    "screenshots": [],
+    "videos": [],
+    "achievements": [],
+    "visible": true
   }
 }
