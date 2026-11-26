@@ -221,5 +221,22 @@
     "videos": [],
     "tracks": [],
     "visible": true
+  },
+  "tawer": {
+    "name": "TaWeR",
+    "since": 2013,
+    "rank": "",
+    "tag": "",
+    "status": "В клане",
+    "location": "Москва",
+    "callsign": "",
+    "motto": "",
+    "description": "",
+    "portrait": "tawer.png",
+    "tracks": [],
+    "screenshots": [],
+    "videos": [],
+    "achievements": [],
+    "visible": false
   }
 }
