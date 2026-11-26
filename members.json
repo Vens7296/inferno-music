@@ -243,5 +243,22 @@
     "videos": [],
     "achievements": [],
     "visible": true
+  },
+  "barbosa": {
+    "name": "Barbosa",
+    "since": 2017,
+    "rank": "Original",
+    "tag": "",
+    "status": "Экс-участник",
+    "location": "Калининград",
+    "callsign": "",
+    "motto": "",
+    "description": "",
+    "portrait": "media/barbosa/portrait/1795727587825-k4o3mc9.png",
+    "tracks": [],
+    "screenshots": [],
+    "videos": [],
+    "achievements": [],
+    "visible": false
   }
 }
