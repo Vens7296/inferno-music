@@ -205,7 +205,7 @@
     "callsign": "",
     "tag": "",
     "motto": "",
-    "portrait": "hokuto.jpg",
+    "portrait": "media/hokuto/portrait/1795850746101-iibegkh.png",
     "description": "",
     "achievements": [],
     "screenshots": [],
@@ -280,5 +280,22 @@
     "videos": [],
     "achievements": [],
     "visible": true
+  },
+  "drey": {
+    "name": "DreY",
+    "since": 2016,
+    "rank": "",
+    "tag": "",
+    "status": "",
+    "location": "",
+    "callsign": "",
+    "motto": "",
+    "description": "",
+    "portrait": "media/drey/portrait/1795850694752-e9fxee0.png",
+    "tracks": [],
+    "screenshots": [],
+    "videos": [],
+    "achievements": [],
+    "visible": false
   }
 }
