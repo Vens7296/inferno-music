@@ -11,7 +11,30 @@ root.replaceChildren();const wrap=el('div','dossier-wrap');root.append(wrap);
 const back=el('a','back-btn','⟵ ВЕРНУТЬСЯ В ЗАЛ СЛАВЫ');back.href='/';back.onclick=()=>store.set('inferno_back','1');wrap.append(back);
 const tracks=(d.tracks||[]).filter(v=>typeof v==='string'&&v.trim()).map(url).filter(Boolean);
 if(tracks.length){const sound=el('div','fighter-sound-box');const music=el('audio');music.preload='auto';const btn=el('button','','▶ Тема бойца');const vol=el('input');vol.type='range';vol.min=0;vol.max=1;vol.step=.05;vol.title='Громкость';vol.setAttribute('aria-label','Громкость');const saved=Number(store.get('inferno_vol')??.6);vol.value=Number.isFinite(saved)?Math.max(0,Math.min(1,saved)):.6;music.volume=Number(vol.value);music.muted=store.get('inferno_muted')==='1';let i=d.random===false?0:Math.floor(Math.random()*tracks.length);music.src=tracks[i];const sync=()=>btn.textContent=music.paused?'▶ Тема бойца':music.muted||!music.volume?'🔇 Пауза':'⏸ Тема бойца';const play=()=>music.play().catch(sync);music.onplay=music.onpause=music.onvolumechange=sync;music.onended=()=>{if(i===tracks.length-1&&d.cycle===false){sync();return}step(1)};function step(delta){i=(i+delta+tracks.length)%tracks.length;music.src=tracks[i];play()}const prev=el('button','','⏮'),next=el('button','','⏭');prev.title='Предыдущий трек';next.title='Следующий трек';prev.onclick=()=>step(-1);next.onclick=()=>step(1);music.onerror=()=>{btn.textContent='Трек недоступен';};btn.onclick=()=>music.paused?play():music.pause();vol.oninput=()=>{music.volume=Number(vol.value);music.muted=false;store.set('inferno_vol',vol.value);store.set('inferno_muted','0');sync()};sound.append(prev,btn,next,vol,music);wrap.append(sound);if(d.autoplay!==false)play();let wasPlaying=false;window.addEventListener('pagehide',()=>{wasPlaying=!music.paused;music.pause()});window.addEventListener('pageshow',e=>{if(e.persisted&&wasPlaying)play()});}
-const hero=el('div','hero-card'),art=el('div','hero-art'),img=el('img');img.alt=d.name;const portrait=url(d.portrait);if(portrait)img.src=portrait;art.append(img);const info=el('div','hero-info');info.append(el('div','rank-tag',d.tag||d.rank||'INFERNO DOMINATUS'),el('h1','fighter-nick',d.name));if(d.motto)info.append(el('div','fighter-motto',d.motto));if(d.description)info.append(el('div','fighter-bio',d.description));const stats=el('div','stats-grid');for(const [label,val] of [['В клане с',d.since],['Ранг',d.rank],['Позывной',d.callsign],['Статус',d.status],['Локация',d.location]]){if(label==='Позывной'&&!val)continue;const box=el('div','stat-box');box.append(el('div','stat-label',label),el('div','stat-val',val||'Не указано'));stats.append(box)}info.append(stats);hero.append(art,info);wrap.append(hero);
+const hero=el('div','hero-card'),art=el('div','hero-art'),img=el('img');img.alt=d.name;const portrait=url(d.portrait);if(portrait)img.src=portrait;
+art.append(img);
+
+const norm = s => String(s || '').trim().toLowerCase().replace(/ё/g, 'е');
+const settings = all._hallSettings;
+const activeId = settings ? settings.activeStatus : 'active';
+
+const currentStatus =
+    settings?.statuses?.find(s => s.id === d.statusId) ||
+    settings?.statuses?.find(s => norm(s.name) === norm(d.status));
+
+const isActive = !!activeId && (
+    currentStatus
+        ? currentStatus.id === activeId
+        : d.statusId
+            ? d.statusId === activeId
+            : activeId === 'active' && norm(d.status) === 'в клане'
+);
+
+if (isActive) {
+    img.style.setProperty('border-color', '#79CA83', 'important');
+    art.style.boxShadow = '0 0 22px rgba(105,200,120,0.30)';
+}
+;const info=el('div','hero-info');info.append(el('div','rank-tag',d.tag||d.rank||'INFERNO DOMINATUS'),el('h1','fighter-nick',d.name));if(d.motto)info.append(el('div','fighter-motto',d.motto));if(d.description)info.append(el('div','fighter-bio',d.description));const stats=el('div','stats-grid');for(const [label,val] of [['В клане с',d.since],['Ранг',d.rank],['Позывной',d.callsign],['Статус',d.status],['Локация',d.location]]){if(label==='Позывной'&&!val)continue;const box=el('div','stat-box');box.append(el('div','stat-label',label),el('div','stat-val',val||'Не указано'));stats.append(box)}info.append(stats);hero.append(art,info);wrap.append(hero);
 const section=(name,cls)=>{wrap.append(el('h2','section-title',name));const g=el('div',cls);wrap.append(g);return g};
 if(d.achievements?.length){const g=section('ЛИЧНЫЕ ВЕХИ И ЗАСЛУГИ','achievements-list');for(const a of d.achievements){const c=el('div','ach-card');c.append(el('div','ach-year',a.year),el('div','ach-name',a.name),el('div','ach-desc',a.description));g.append(c)}}
 const pics=(d.screenshots||[]).map(url).filter(Boolean);if(pics.length){const g=section('ФОТОАРХИВ','archive-grid');pics.forEach((u,i)=>{const b=el('button');b.setAttribute('aria-label','Открыть фото '+(i+1));const im=el('img');im.src=u;im.alt='Фото '+(i+1);im.loading='lazy';b.append(im);b.onclick=()=>{const overlay=el('div','inferno-lightbox'),large=el('img'),close=el('button','','×');large.src=u;large.alt=im.alt;close.setAttribute('aria-label','Закрыть');const dismiss=()=>{overlay.remove();document.removeEventListener('keydown',esc);b.focus()};const esc=e=>{if(e.key==='Escape')dismiss()};overlay.append(large,close);overlay.onclick=dismiss;document.body.append(overlay);document.addEventListener('keydown',esc);close.focus()};g.append(b)})}
