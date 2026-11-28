@@ -3,7 +3,7 @@
     "name": "Vens",
     "rank": "Лидер клана",
     "since": 2010,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -16,13 +16,14 @@
     "tracks": [
       "vens.mp3"
     ],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "snake": {
     "name": "Snake",
     "rank": "Original",
     "since": 2017,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -33,7 +34,8 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "gungster": {
     "name": "GunGsteR",
@@ -92,7 +94,7 @@
     "name": "Alex.V",
     "rank": "Original",
     "since": 2014,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -103,13 +105,14 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "wiggle": {
     "name": "Wiggle",
     "rank": "Original",
     "since": 2012,
-    "status": "",
+    "status": "Экс-участник",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -123,13 +126,14 @@
       "wiggle.mp3",
       "media/wiggle/tracks/1795731521901-nom74mf.mp3"
     ],
-    "visible": true
+    "visible": true,
+    "statusId": "former"
   },
   "ivar": {
     "name": "IvaR",
     "rank": "Original",
     "since": 2018,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -143,13 +147,14 @@
       "ivar.m4a",
       "ivar2.mp3"
     ],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "urban": {
     "name": "Urban",
     "rank": "Original",
     "since": 2017,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -160,13 +165,14 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "markus": {
     "name": "Markus",
     "rank": "Original",
     "since": 2014,
-    "status": "",
+    "status": "Экс-участник",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -177,13 +183,14 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "former"
   },
   "silver": {
     "name": "S1lver",
     "rank": "Original",
     "since": 2011,
-    "status": "",
+    "status": "Экс-участник",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -194,13 +201,14 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "former"
   },
   "hokuto": {
     "name": "Hokuto",
     "rank": "Original",
     "since": 2017,
-    "status": "",
+    "status": "Экс-участник",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -211,13 +219,14 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "former"
   },
   "ypiter": {
     "name": "Ypiter",
     "rank": "Original",
     "since": 2015,
-    "status": "",
+    "status": "В клане",
     "location": "",
     "callsign": "",
     "tag": "",
@@ -228,7 +237,8 @@
     "screenshots": [],
     "videos": [],
     "tracks": [],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "tawer": {
     "name": "TaWeR",
@@ -245,7 +255,8 @@
     "screenshots": [],
     "videos": [],
     "achievements": [],
-    "visible": true
+    "visible": true,
+    "statusId": "active"
   },
   "barbosa": {
     "name": "Barbosa",
@@ -286,7 +297,7 @@
     "since": 2016,
     "rank": "",
     "tag": "",
-    "status": "",
+    "status": "Экс-участник",
     "location": "",
     "callsign": "",
     "motto": "",
@@ -296,6 +307,40 @@
     "screenshots": [],
     "videos": [],
     "achievements": [],
-    "visible": true
+    "visible": true,
+    "statusId": "former"
+  },
+  "_hallSettings": {
+    "statuses": [
+      {
+        "id": "active",
+        "name": "В клане"
+      },
+      {
+        "id": "former",
+        "name": "Экс-участник"
+      },
+      {
+        "id": "lost",
+        "name": "Связь потеряна"
+      }
+    ],
+    "projects": [
+      {
+        "id": "samp",
+        "name": "SA-MP"
+      },
+      {
+        "id": "bannerlord",
+        "name": "Bannerlord Online"
+      },
+      {
+        "id": "majestic",
+        "name": "Majestic RP"
+      }
+    ],
+    "activeStatus": "active",
+    "caption": "original",
+    "showYear": true
   }
 }
